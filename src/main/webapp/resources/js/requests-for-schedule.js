@@ -7,15 +7,12 @@ $(document).ready(function() {
 });
 
 function deleteSchedule() {
-    var disciplineForDelete = $('#disciplineForDelete').val();
-
-    var requestJSONparametr = "{\"name\": \"" + disciplineForDelete + "\"}";
+    var scheduleForDelete = $('#scheduleForDelete').val();
     $.ajax({
-        type: "POST",
-        url: "/schedule/delete",
+        type: "GET",
+        url: "/schedule/search/deleteByTeacher?teacher=" + scheduleForDelete.replace("/ /g", "%20"),
         contentType: "application/json",
-        dataType: 'json',
-        data: requestJSONparametr,
+        dataType: 'json'
     });
 }
 

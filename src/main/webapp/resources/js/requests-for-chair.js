@@ -8,20 +8,18 @@ $(document).ready(function() {
 
 function deleteChair() {
     var headForDelete = $('#headForDelete').val();
-    var requestJSONparametr = "{\"head\": \"" + headForDelete + "\"}";
     $.ajax({
-        type: "POST",
-        url: "/chair/delete",
+        type: "GET",
+        url: "/chair/search/deleteByHead?head=" + headForDelete.replace("/ /g", "%20"),
         contentType: "application/json",
-        dataType: 'json',
-        data: requestJSONparametr
+        dataType: 'json'
     });
 }
 
 function addNewChair() {
     var head = $('#head').val();
     var description = $('#description').val();
-    var requestJSONparametr = "{\"name\": \"" + head + "\", \"description\": \"" + description + "\"}";
+    var requestJSONparametr = "{\"head\": \"" + head + "\", \"description\": \"" + description + "\"}";
     $.ajax({
         type: "POST",
         url: "/chair/add",
@@ -44,9 +42,7 @@ function getChair() {
             itemNameElement.innerHTML =  item['description'] ;     //внедряем название предмета, полученное с сервера
             var itemPriceElement = document.createElement('td');
             itemPriceElement.innerHTML = item['head'];
-
             var elementRow = document.createElement('tr'); /// /создаем строку таблицы
-
             elementRow.appendChild(itemNameElement);      //помещаем обе ячейки в строку
             elementRow.appendChild(itemPriceElement);
             itemsTable.appendChild(elementRow);           //помещаем строку в таблицу

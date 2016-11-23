@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" style="padding:15px 15px;">Study</a>
+            <a class="navbar-brand" href="#" style="padding:15px 15px;">StudyPanel</a>
         </div>
         <div class="collapse navbar-collapse js-navbar">
             <ul class="nav navbar-nav">
@@ -89,7 +89,7 @@
                 <div class="modal-body">
                     <form onsubmit="deleteStudent()" action="javascript:void(null);">
                         <center>
-                        <input type="text" placeholder="марка" id="nameForDelete">
+                        <input type="text" placeholder="Имя" id="nameForDelete">
                         <br/>
                         <button type="submit" c class="btn">Удалить студента</button></center>
                     </form>
@@ -146,7 +146,17 @@
     </thead>
     <tbody id="all-items">
     </tbody>
+
 </table>
 </div>
+<script src="js/tablesorter/jquery.tablesorter.js"></script>
+<script src="js/search/jquery.filtertable.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('table').tablesorter();
+        $('table').filterTable({minRows: 0});
+    });
+</script>
 </body>
 </html>

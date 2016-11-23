@@ -8,14 +8,11 @@ $(document).ready(function() {
 
 function deleteSession() {
     var disciplineForDelete = $('#disciplineForDelete').val();
-    var dateForDelete = $('#dateForDelete').val();
-    var requestJSONparametr = "{\"description\": \"" + disciplineForDelete + "\", \"dateOfPass\": \"" + dateForDelete + "\"}";
     $.ajax({
-        type: "POST",
-        url: "/session/delete",
+        type: "GET",
+        url: "/session/search/deleteByDescription?description=" + disciplineForDelete.replace("/ /g", "%20"),
         contentType: "application/json",
-        dataType: 'json',
-        data: requestJSONparametr
+        dataType: 'json'
     });
 }
 

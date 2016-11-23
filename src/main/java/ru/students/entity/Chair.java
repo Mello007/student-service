@@ -12,6 +12,6 @@ import javax.persistence.Table;
 @Table(name = "Chair")
 
 public class Chair extends BaseEntity {
-        private String description;
+    private String description;
     private String head;
 }

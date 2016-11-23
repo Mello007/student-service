@@ -24,8 +24,4 @@ public class StudentController {
     public void deleteStudent(@RequestBody Student student)  {
         studentRepository.delete(student);
     }
-
-
-
-
 }

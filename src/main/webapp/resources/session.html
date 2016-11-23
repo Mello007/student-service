@@ -22,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#" style="padding:15px 15px;">AutoPanel</a>
+                <a class="navbar-brand" href="#" style="padding:15px 15px;">StudyPanel</a>
             </div>
             <div class="collapse navbar-collapse js-navbar">
                 <ul class="nav navbar-nav">
@@ -61,8 +61,6 @@
                     <form onsubmit="deleteSession()" action="javascript:void(null);">
                         <center>
                         <input type="text" style="margin: 10px" placeholder="Описание" id="disciplineForDelete">
-                            <br/>
-                            <input type="text" style="margin: 10px" placeholder="Дата" id="dateForDelete">
                             <br/>
                         <button type="submit" class="btn">Удалить</button></center>
                     </form>
@@ -111,15 +109,24 @@
 
     <table class="table table-striped">
         <tr>
-            <th class="hand-th">Имя</th>
-            <th class="hand-th">Зарплата</th>
-            <th class="hand-th">Дата рождения</th>
-            <th class="hand-th">Дата поступления на работу</th>
-            <th class="hand-th">Дата поступления на работу</th>
+            <th class="hand-th">Описание</th>
+            <th class="hand-th">Имя преподавателя</th>
+            <th class="hand-th">Дисциплина</th>
+            <th class="hand-th">Номер группы</th>
+            <th class="hand-th">Дата сдачи</th>
         </tr>
         <tbody id="all-employees">
         </tbody>
     </table>
 </div>
+<script src="js/tablesorter/jquery.tablesorter.js"></script>
+<script src="js/search/jquery.filtertable.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('table').tablesorter();
+        $('table').filterTable({minRows: 0});
+    });
+</script>
 </body>
 </html>

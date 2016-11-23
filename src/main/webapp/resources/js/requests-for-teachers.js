@@ -8,15 +8,11 @@ $(document).ready(function() {
 
 function deleteTeacher() {
     var nameForDelete = $('#nameForDelete').val();
-    var addressForDelete = $('#addressForDelete').val();
-
-    var requestJSONparametr = "{\"name\": \"" + nameForDelete + "\", \"address\": \"" + addressForDelete + "\"}";
     $.ajax({
-        type: "POST",
-        url: "/teacher/delete",
+        type: "GET",
+        url: "/teacher/search/deleteByName?name=" + nameForDelete.replace("/ /g", "%20"),
         contentType: "application/json",
-        dataType: 'json',
-        data: requestJSONparametr,
+        dataType: 'json'
     });
 }
 
