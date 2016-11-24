@@ -1,3 +1,6 @@
+/**
+ * Created by artem on 24.11.16.
+ */
 
 var currency = '';
 $(document).ready(function() {
@@ -6,23 +9,22 @@ $(document).ready(function() {
     })
 });
 
-function deleteChair() {
-    var headForDelete = $('#headForDelete').val();
+function deleteFaculties() {
+    var faculties = $('#facultiesFordelete').val();
     $.ajax({
         type: "GET",
-        url: "/chair/search/deleteByHead?head=" + headForDelete.replace("/ /g", "%20"),
+        url: "/faculties/search/deleteByFaculties?faculties=" + faculties.replace("/ /g", "%20"),
         contentType: "application/json",
         dataType: 'json'
     });
 }
 
-function addNewChair() {
-    var head = $('#head').val();
-    var description = $('#description').val();
-    var requestJSONparametr = "{\"head\": \"" + head + "\", \"description\": \"" + description + "\"}";
+function addNewFaculties() {
+    var faculties = $('#faculties').val();
+    var requestJSONparametr = "{\"faculties\": \"" + faculties + "\"}";
     $.ajax({
         type: "POST",
-        url: "/chair/add",
+        url: "/faculties/add",
         contentType: "application/json",
         dataType: 'json',
         data: requestJSONparametr
@@ -32,19 +34,16 @@ function addNewChair() {
 
 function getChair() {
     var priceRequest = new XMLHttpRequest();
-    priceRequest.open("GET", "/chair/", true);   //Указываем адрес GET-запроса
+    priceRequest.open("GET", "/kindOfControl/", true);   //Указываем адрес GET-запроса
     priceRequest.onload = function (){             //Функция которая отправляет запрос на сервер для получения всех студентов
         var parsedItem = JSON.parse(this.responseText);
         var itemsTable = document.getElementById('all-clients'); //получаем элемент по Id
         itemsTable.innerHTML = '';      //очищаем таблицу от устаревших данных
-        parsedItem._embedded.chair.forEach(function(item)  {
+        parsedItem._embedded.faculties.forEach(function(item)  {
             var itemNameElement = document.createElement('td'); //создаем элемент ячейку с названием для таблицы
-            itemNameElement.innerHTML =  item['head'] ;     //внедряем название предмета, полученное с сервера
-            var itemPriceElement = document.createElement('td');
-            itemPriceElement.innerHTML = item['description'];
+            itemNameElement.innerHTML =  item['faculties'] ;     //внедряем название предмета, полученное с сервера
             var elementRow = document.createElement('tr'); /// /создаем строку таблицы
             elementRow.appendChild(itemNameElement);      //помещаем обе ячейки в строку
-            elementRow.appendChild(itemPriceElement);
             itemsTable.appendChild(elementRow);           //помещаем строку в таблицу
         });
     };

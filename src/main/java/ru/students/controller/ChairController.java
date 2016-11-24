@@ -20,9 +20,5 @@ public class ChairController {
         chairRepository.save(chair);
     }
 
-    @RequestMapping(value = "delete", method = RequestMethod.POST, consumes = "application/json")
-    public void deleteStudent(@RequestBody Chair chair)  {
-        chairRepository.delete(chair);
-    }
 
 }

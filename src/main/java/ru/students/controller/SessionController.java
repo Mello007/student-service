@@ -19,9 +19,4 @@ public class SessionController {
         sessionRepository.save(session);
     }
 
-    @RequestMapping(value = "delete", method = RequestMethod.POST, consumes = "application/json")
-    public void deleteSession(@RequestBody Session session)  {
-        sessionRepository.delete(session);
-    }
-
 }

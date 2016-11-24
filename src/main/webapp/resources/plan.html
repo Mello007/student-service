@@ -7,7 +7,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script defer src="js/bootstrap.min.js"></script>
-    <script src="js/requests-for-chair.js"></script>
+    <script src="js/requests-for-plan.js"></script>
 </head>
 <body>
 
@@ -33,36 +33,36 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a data-val="usd" href="admin.html">Студенты</a></li>
-                            <li><a href="teachers.html">Преподаватели</a></li>
-                            <li><a href="chair.html">Кафедра</a></li>
+                            <li><a data-val="rub" href="teachers.html">Преподаватели</a></li>
+                            <li><a data-val="eur" href="chair.html">Кафедра</a></li>
                             <li><a href="session.html">Сессия</a></li>
                             <li><a href="schedule.html">Расписание</a></li>
                         </ul>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#deleteClient" class="btn" data-toggle="modal">Удалить</a></li>
-                    <li><a href="#addClient" class="btn" data-toggle="modal">Добавить</a></li>
+                    <li><a href="#deletePlan" class="btn" data-toggle="modal">Удалить</a></li>
+                    <li><a href="#addPlan" class="btn" data-toggle="modal">Добавить</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div id="deleteClient" class="modal fade">
+    <div id="deletePlan" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <!-- Заголовок модального окна -->
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">Удалить</h4>
+                    <h4 class="modal-title">Добавить</h4>
                 </div>
                 <!-- Основное содержимое модального окна -->
                 <div class="modal-body">
-                    <form onsubmit="deleteChair()" action="javascript:void(null);">
+                    <form onsubmit="deleteKindOfControl()" action="javascript:void(null);">
                         <center>
-                        <input type="text" placeholder="Название" id="headForDelete">
-                        <br/>
-                        <button type="submit" style="margin: 10px" class="btn">Удалить кафедру</button></center>
+                            <input type="text" style="margin: 10px" placeholder="Дисциплина" id="disciplineForDelete">
+                            <br/>
+                            <button type="submit" class="btn">Удалить</button></center>
                     </form>
                 </div>
                 <!-- Футер модального окна -->
@@ -74,7 +74,7 @@
     </div>
 
 
-    <div id="addClient" class="modal fade">
+    <div id="addPlan" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <!-- Заголовок модального окна -->
@@ -84,14 +84,22 @@
                 </div>
                 <!-- Основное содержимое модального окна -->
                 <div class="modal-body">
-                    <form onsubmit="addNewChair()" action="javascript:void(null);">
-                        <center>
-                        <input type="text" style="margin: 10px" placeholder="Название" id="head">
+                    <center>
+                        <form onsubmit="addNewKindOfControl()" action="javascript:void(null);">
+                            <input type="text" style="margin: 10px" placeholder="Специальность" id="specialty">
                             <br/>
-                        <input type="text" style="margin: 10px" placeholder="Описание" id="description">
+                            <input type="text" placeholder="Год" id="year">
                             <br/>
-                        <button type="submit" class="btn">Добавить кафедру</button></center>
-                    </form>
+                            <input type="text" style="margin: 10px" placeholder="Курс" id="cours">
+                            <br/>
+                            <input type="text" placeholder="Дисциплина" id="discipline">
+                            <br/>
+                            <input type="text" style="margin: 10px" placeholder="Количество часов" id="countOfHours">
+                            <br/>
+                            <input type="text" style="margin: 10px" placeholder="Вид контроля" id="kindOfControl">
+                            <br/>
+                            <button type="submit" style="margin: 10px" class="btn">Добавить</button>
+                        </form></center>
                 </div>
                 <!-- Футер модального окна -->
                 <div class="modal-footer">
@@ -103,10 +111,13 @@
 
     <table class="table table-striped">
         <tr>
-            <th class="hand-th">Название</th>
-            <th class="hand-th">Описание</th>
+            <th class="hand-th">Специальность</th>
+            <th class="hand-th">Год</th>
+            <th class="hand-th">Курс</th>
+            <th class="hand-th">Дисциплина</th>
+            <th class="hand-th">Вид контроля</th>
         </tr>
-        <tbody id="all-clients">
+        <tbody id="all-employees">
         </tbody>
     </table>
 </div>

@@ -20,9 +20,5 @@ public class TeacherController {
         teacherRepository.save(teacher);
     }
 
-    @RequestMapping(value = "delete", method = RequestMethod.POST, consumes = "application/json")
-    public void deleteStudent(@RequestBody Teacher teacher)  {
-        teacherRepository.delete(teacher);
-    }
 
 }

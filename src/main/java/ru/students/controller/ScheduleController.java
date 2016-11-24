@@ -20,9 +20,4 @@ public class ScheduleController {
         scheduleRepository.save(schedule);
     }
 
-    @RequestMapping(value = "delete", method = RequestMethod.POST, consumes = "application/json")
-    public void deleteStudent(@RequestBody Schedule schedule)  {
-        scheduleRepository.delete(schedule);
-    }
-
 }

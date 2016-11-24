@@ -5,19 +5,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import ru.students.entity.Student;
-import ru.students.repository.StudentRepository;
+import ru.students.entity.KindOfControl;
+import ru.students.entity.Plan;
+import ru.students.repository.KindOfControlRepository;
+import ru.students.repository.PlanRepository;
 
 @RestController
-@RequestMapping(value = "student")
-public class StudentController {
-
-    @Autowired StudentRepository studentRepository;
-
+@RequestMapping(value = "kindOfControl")
+public class KindOfControlController {
+    @Autowired
+    KindOfControlRepository kindOfControlRepository;
 
     @RequestMapping(value = "add", method = RequestMethod.POST, consumes = "application/json")
-    public void addStudent(@RequestBody Student student)  {
-        studentRepository.save(student);
+    public void addKindOfControl(@RequestBody KindOfControl kindOfControl)  {
+        kindOfControlRepository.save(kindOfControl);
     }
-
 }

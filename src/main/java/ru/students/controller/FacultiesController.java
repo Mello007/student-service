@@ -1,23 +1,25 @@
 package ru.students.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import ru.students.entity.Student;
-import ru.students.repository.StudentRepository;
+import ru.students.entity.Faculties;
+import ru.students.entity.GroupList;
+import ru.students.repository.FacultiesRepository;
+import ru.students.repository.GroupListRepository;
 
 @RestController
-@RequestMapping(value = "student")
-public class StudentController {
+@RequestMapping(value = "faculties")
+public class FacultiesController {
 
-    @Autowired StudentRepository studentRepository;
-
+    @Autowired
+    FacultiesRepository facultiesRepository;
 
     @RequestMapping(value = "add", method = RequestMethod.POST, consumes = "application/json")
-    public void addStudent(@RequestBody Student student)  {
-        studentRepository.save(student);
+    public void addFaculties(@RequestBody Faculties faculties)  {
+        facultiesRepository.save(faculties);
     }
-
 }

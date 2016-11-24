@@ -6,23 +6,23 @@ $(document).ready(function() {
     })
 });
 
-function deleteChair() {
-    var headForDelete = $('#headForDelete').val();
+function deleteSpecialty() {
+    var specialtyForDelete = $('#specialtyForDelete').val();
     $.ajax({
         type: "GET",
-        url: "/chair/search/deleteByHead?head=" + headForDelete.replace("/ /g", "%20"),
+        url: "/specialty/search/deleteBySpecialty?specialty=" + specialtyForDelete.replace("/ /g", "%20"),
         contentType: "application/json",
         dataType: 'json'
     });
 }
 
-function addNewChair() {
-    var head = $('#head').val();
-    var description = $('#description').val();
-    var requestJSONparametr = "{\"head\": \"" + head + "\", \"description\": \"" + description + "\"}";
+function addNewSpecialty() {
+    var specialty = $('#specialty').val();
+    var faculty = $('#faculty').val();
+    var requestJSONparametr = "{\"specialty\": \"" + specialty + "\", \"faculty\": \"" + faculty + "\"}";
     $.ajax({
         type: "POST",
-        url: "/chair/add",
+        url: "/specialty/add",
         contentType: "application/json",
         dataType: 'json',
         data: requestJSONparametr
@@ -30,18 +30,18 @@ function addNewChair() {
 }
 
 
-function getChair() {
+function getSpecialtyes() {
     var priceRequest = new XMLHttpRequest();
-    priceRequest.open("GET", "/chair/", true);   //Указываем адрес GET-запроса
+    priceRequest.open("GET", "/specialty/", true);   //Указываем адрес GET-запроса
     priceRequest.onload = function (){             //Функция которая отправляет запрос на сервер для получения всех студентов
         var parsedItem = JSON.parse(this.responseText);
-        var itemsTable = document.getElementById('all-clients'); //получаем элемент по Id
+        var itemsTable = document.getElementById('all-employees'); //получаем элемент по Id
         itemsTable.innerHTML = '';      //очищаем таблицу от устаревших данных
-        parsedItem._embedded.chair.forEach(function(item)  {
+        parsedItem._embedded.specialty.forEach(function(item)  {
             var itemNameElement = document.createElement('td'); //создаем элемент ячейку с названием для таблицы
-            itemNameElement.innerHTML =  item['head'] ;     //внедряем название предмета, полученное с сервера
+            itemNameElement.innerHTML =  item['specialty'] ;     //внедряем название предмета, полученное с сервера
             var itemPriceElement = document.createElement('td');
-            itemPriceElement.innerHTML = item['description'];
+            itemPriceElement.innerHTML = item['faculty'];
             var elementRow = document.createElement('tr'); /// /создаем строку таблицы
             elementRow.appendChild(itemNameElement);      //помещаем обе ячейки в строку
             elementRow.appendChild(itemPriceElement);
@@ -53,5 +53,5 @@ function getChair() {
 }
 
 $(document).ready(function() {
-    getChair();
+    getSpecialtyes();
 });

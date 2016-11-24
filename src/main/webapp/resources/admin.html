@@ -42,7 +42,6 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#searchStudent" class="btn" data-toggle="modal">Поиск</a></li>
                 <li><a href="#deleteAvto" class="btn" data-toggle="modal">Удалить</a></li>
                 <li><a href="#myModal" class="btn" data-toggle="modal">Добавить</a></li>
             </ul>
@@ -63,7 +62,7 @@
                 <div class="modal-body">
                     <form onsubmit="deleteStudent()" action="javascript:void(null);">
                         <center>
-                            <input type="text" placeholder="марка" id="nameForSearch">
+                            <input type="text" placeholder="Имя" id="nameForSearch">
                             <br/>
                             <button type="submit" c class="btn">Найти студента</button></center>
                     </form>
@@ -122,7 +121,7 @@
                         <br/>
                         <input type="text"  style="margin: 10px" placeholder="Пол" id="sex">
                         <br/>
-                        <input type="text" placeholder="Номер телефона" id="phoneNumber">
+                        <input type="text" style="margin: 10px"  placeholder="Номер телефона" id="phoneNumber">
                             <br/>
                         <button type="submit" class="btn">Добавить студента</button></center>
                     </form>

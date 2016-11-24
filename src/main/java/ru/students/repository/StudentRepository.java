@@ -8,9 +8,14 @@ import ru.students.entity.Student;
 
 @RepositoryRestResource(collectionResourceRel = "student", path = "student")
 public interface StudentRepository extends PagingAndSortingRepository<Student, Long> {
-    Student findByName(@Param("name") String name);
+
 
     @Transactional
     void deleteByName(@Param("name") String name);
+
+
+//    @Transactional
+//    void save(@Param("name") String name, @Param("dateOfBirthDay") String dateOfBirthDay, @Param("sex") String sex
+//            , @Param("phoneNumber") String phoneNumber);
 
 }
