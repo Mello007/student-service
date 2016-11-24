@@ -38,6 +38,13 @@
                         <li><a href="chair.html">Кафедра</a></li>
                         <li><a href="session.html">Сессия</a></li>
                         <li><a href="schedule.html">Расписание</a></li>
+                        <li><a href="kindOfControl.html">Вид контроля</a></li>
+                        <li><a href="discipline.html">Дисциплина</a></li>
+                        <li><a href="plan.html">Учебный план</a></li>
+                        <li><a href="GroupList.html">Группы</a></li>
+                        <li><a href="faculties.html">Факультеты</a></li>
+                        <li><a href="specialty.html">Специальность</a></li>
+                        <li><a href="estimate.html">Оценки</a></li>
                     </ul>
                 </li>
             </ul>
@@ -50,30 +57,7 @@
 </nav>
 
 
-    <div id="searchStudent" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <!-- Заголовок модального окна -->
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">Найти</h4>
-                </div>
-                <!-- Основное содержимое модального окна -->
-                <div class="modal-body">
-                    <form onsubmit="deleteStudent()" action="javascript:void(null);">
-                        <center>
-                            <input type="text" placeholder="Имя" id="nameForSearch">
-                            <br/>
-                            <button type="submit" c class="btn">Найти студента</button></center>
-                    </form>
-                </div>
-                <!-- Футер модального окна -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
 
     <div id="deleteAvto" class="modal fade">
@@ -88,7 +72,7 @@
                 <div class="modal-body">
                     <form onsubmit="deleteStudent()" action="javascript:void(null);">
                         <center>
-                        <input type="text" placeholder="Имя" id="nameForDelete">
+                        <input type="text" style="margin: 10px" placeholder="Имя" id="nameForDelete">
                         <br/>
                         <button type="submit" c class="btn">Удалить студента</button></center>
                     </form>

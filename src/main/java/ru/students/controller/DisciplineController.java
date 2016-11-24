@@ -6,22 +6,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import ru.students.entity.Plan;
-import ru.students.entity.Schedule;
-import ru.students.repository.PlanRepository;
-import ru.students.repository.ScheduleRepository;
+import ru.students.entity.Discipline;
+import ru.students.entity.Estimate;
+import ru.students.repository.DisciplineRepository;
+import ru.students.repository.EstimateRepository;
 
 @RestController
-@RequestMapping(value = "plan")
-public class PlanController {
-
+@RequestMapping(value = "discipline")
+public class DisciplineController {
 
     @Autowired
-    PlanRepository planRepository;
+    DisciplineRepository disciplineRepository;
 
     @RequestMapping(value = "add", method = RequestMethod.POST, consumes = "application/json")
-    public void addPlan(@RequestBody Plan plan)  {
-        planRepository.save(plan);
+    public void addDiscipline(@RequestBody Discipline discipline)  {
+        disciplineRepository.save(discipline);
     }
 
 }

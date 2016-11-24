@@ -6,17 +6,17 @@ $(document).ready(function() {
     })
 });
 
-function deleteKindOfControl() {
+function deletePlan() {
     var disciplineForDelete = $('#disciplineForDelete').val();
     $.ajax({
         type: "GET",
-        url: "/kindOfControl/search/deleteByDiscipline?discipline=" + disciplineForDelete.replace("/ /g", "%20"),
+        url: "/plan/search/deleteByDiscipline?discipline=" + disciplineForDelete.replace("/ /g", "%20"),
         contentType: "application/json",
         dataType: 'json'
     });
 }
 
-function addNewKindOfControl() {
+function addNewPlan() {
     var specialty = $('#specialty').val();
     var year = $('#year').val();
     var cours = $('#cours').val();
@@ -36,9 +36,9 @@ function addNewKindOfControl() {
 }
 
 
-function getKindOfControls() {
+function getDisciplines() {
     var priceRequest = new XMLHttpRequest();
-    priceRequest.open("GET", "/kindOfControl/", true);   //Указываем адрес GET-запроса
+    priceRequest.open("GET", "/plan/", true);   //Указываем адрес GET-запроса
     priceRequest.onload = function (){             //Функция которая отправляет запрос на сервер для получения всех студентов
         var parsedItem = JSON.parse(this.responseText);
         var itemsTable = document.getElementById('all-employees'); //получаем элемент по Id
@@ -73,6 +73,6 @@ function getKindOfControls() {
 }
 
 $(document).ready(function() {
-    getKindOfControls();
+    getDisciplines();
     // setInterval(getCars,5000);
 });
